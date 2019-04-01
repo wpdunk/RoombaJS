@@ -1,0 +1,14 @@
+{
+  "name": "roombajs",
+  "version": "1.0.0",
+  "description": "a program that navigates an imaginary robotic hoover ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "William Dunk",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.3.1"
+  }
+}
