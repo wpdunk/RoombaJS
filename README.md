@@ -1,7 +1,7 @@
 #USER STORIES
 As a hoover operator,
 I want to be able to map out the room environment,
-So that dirt can hoover locations can be tracked.
+So that dirt and hoover locations can be tracked.
 
 As a hoover operator,
 I want to be able to process hoover driving instructions,

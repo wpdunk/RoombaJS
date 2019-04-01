@@ -1,8 +1,10 @@
+const Hoover = require("../src/hoover");
+
 describe("Features", function() {
   it("given no driving instructions or dirt, should report position and zero dirt removed", function() {
     hoover = new Hoover();
     spyOn(console, "log");
-    hoover.run();
-    expect(console.log).toHaveBeenCalledWith("0,0\n0");
+    hoover.run("./spec/support/testOne.txt");
+    expect(console.log).toHaveBeenCalledWith("0 0\n0");
   });
 });
