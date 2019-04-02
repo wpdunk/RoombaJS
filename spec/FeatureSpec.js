@@ -21,4 +21,10 @@ describe("Features", function() {
     hoover.run("./spec/support/testThree.txt");
     expect(console.log).toHaveBeenCalledWith("0 0\n0");
   });
+  it("given driving instruction over dirt patch should record patch cleaned", function() {
+    hoover = new Hoover();
+    spyOn(console, "log");
+    hoover.run("./spec/support/testFour.txt");
+    expect(console.log).toHaveBeenCalledWith("0 1\n1");
+  });
 });

@@ -3,6 +3,7 @@ class Hoover {
     this.dirtSum = 0;
     this.hooverPosition;
     this.directionsArray = [];
+    this.dirtArray = [];
   }
   run(filename) {
     this.readInput(filename);
@@ -16,8 +17,13 @@ class Hoover {
       .readFileSync(filename)
       .toString()
       .split("\n");
+    inputArray.pop();
     this.hooverPosition = inputArray[1].split(" ").map(Number);
-    this.directionsArray = inputArray[2].split("");
+    this.directionsArray = inputArray.pop().split("");
+    for (var i = 2; i < inputArray.length; i++) {
+      this.dirtArray.push(inputArray[i].split(" ").map(Number));
+    }
+    console.log(">>", this.dirtArray, "<<");
   }
 
   drive() {

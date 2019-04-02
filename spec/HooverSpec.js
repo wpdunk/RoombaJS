@@ -6,6 +6,11 @@ describe("Hoover", function() {
     hoover.readInput("./spec/support/testOne.txt");
     expect(hoover.hooverPosition).toEqual([0, 0]);
   });
+  it("can record dirt locations from input", function() {
+    hoover = new Hoover();
+    hoover.readInput("./spec/support/testFour.txt");
+    expect(hoover.dirtArray).toEqual([[0, 1]]);
+  });
   it("can drive north", function() {
     hoover = new Hoover();
     hoover.hooverPosition = [1, 1];
