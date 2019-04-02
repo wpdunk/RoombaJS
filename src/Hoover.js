@@ -25,6 +25,15 @@ class Hoover {
       if (move === "N") {
         this.hooverPosition[1] += 1;
       }
+      if (move === "E") {
+        this.hooverPosition[0] += 1;
+      }
+      if (move === "S") {
+        this.hooverPosition[1] -= 1;
+      }
+      if (move === "W") {
+        this.hooverPosition[0] -= 1;
+      }
     });
   }
 }
