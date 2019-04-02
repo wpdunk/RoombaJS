@@ -56,6 +56,7 @@ describe("Hoover", function() {
   });
   it("can record count of dirt cleaned", function() {
     hoover = new Hoover();
+    hoover.roomDimensions = [2, 2];
     hoover.hooverPosition = [1, 1];
     hoover.dirtArray = [[0, 1]];
     hoover.directionsArray = ["W"];
