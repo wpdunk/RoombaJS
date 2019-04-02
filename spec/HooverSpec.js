@@ -16,6 +16,12 @@ describe("Hoover", function() {
     hoover.readInput("./spec/support/testFour.txt");
     expect(hoover.dirtArray).toEqual([[0, 1]]);
   });
+  it("can record room dimensions from input", function() {
+    hoover = new Hoover();
+    hoover.readInput("./spec/support/testOne.txt");
+    expect(hoover.roomDimensions).toEqual([5, 5]);
+  });
+
   it("can drive north", function() {
     hoover = new Hoover();
     hoover.hooverPosition = [1, 1];
