@@ -1,3 +1,5 @@
+var fs = require("fs");
+
 class Hoover {
   constructor() {
     this.dirtSum = 0;
@@ -13,7 +15,6 @@ class Hoover {
   }
 
   readInput(filename) {
-    var fs = require("fs");
     var inputArray = fs
       .readFileSync(filename)
       .toString()
@@ -49,14 +50,18 @@ class Hoover {
           this.hooverPosition[0] -= 1;
         }
       }
-      this.dirtArray.forEach(dirt => {
-        if (
-          this.hooverPosition[0] === dirt[0] &&
-          this.hooverPosition[1] === dirt[1]
-        ) {
-          this.dirtSum += 1;
-        }
-      });
+      this.clean();
+    });
+  }
+
+  clean() {
+    this.dirtArray.forEach(dirt => {
+      if (
+        this.hooverPosition[0] === dirt[0] &&
+        this.hooverPosition[1] === dirt[1]
+      ) {
+        this.dirtSum += 1;
+      }
     });
   }
 }
