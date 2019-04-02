@@ -6,11 +6,7 @@ class Hoover {
   }
   run(filename) {
     this.readInput(filename);
-    this.directionsArray.forEach(move => {
-      if (move === "N") {
-        this.hooverPosition[1] += 1;
-      }
-    });
+    this.drive();
     console.log(`${this.hooverPosition.join(" ")}\n${this.dirtSum}`);
   }
 
@@ -24,7 +20,13 @@ class Hoover {
     this.directionsArray = inputArray[2].split("");
   }
 
-  // drive() {}
+  drive() {
+    this.directionsArray.forEach(move => {
+      if (move === "N") {
+        this.hooverPosition[1] += 1;
+      }
+    });
+  }
 }
 
 module.exports = Hoover;
