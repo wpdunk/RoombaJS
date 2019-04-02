@@ -23,7 +23,6 @@ class Hoover {
     for (var i = 2; i < inputArray.length; i++) {
       this.dirtArray.push(inputArray[i].split(" ").map(Number));
     }
-    console.log(">>", this.dirtArray, "<<");
   }
 
   drive() {
@@ -40,6 +39,14 @@ class Hoover {
       if (move === "W") {
         this.hooverPosition[0] -= 1;
       }
+      this.dirtArray.forEach(dirt => {
+        if (
+          this.hooverPosition[0] === dirt[0] &&
+          this.hooverPosition[1] === dirt[1]
+        ) {
+          this.dirtSum += 1;
+        }
+      });
     });
   }
 }

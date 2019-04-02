@@ -44,4 +44,12 @@ describe("Hoover", function() {
     hoover.drive();
     expect(hoover.hooverPosition).toEqual([0, 1]);
   });
+  it("can record count of dirt cleaned", function() {
+    hoover = new Hoover();
+    hoover.hooverPosition = [1, 1];
+    hoover.dirtArray = [[0, 1]];
+    hoover.directionsArray = ["W"];
+    hoover.drive();
+    expect(hoover.dirtSum).toEqual(1);
+  });
 });
