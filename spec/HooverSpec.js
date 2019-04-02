@@ -24,6 +24,7 @@ describe("Hoover", function() {
 
   it("can drive north", function() {
     hoover = new Hoover();
+    hoover.roomDimensions = [2, 2];
     hoover.hooverPosition = [1, 1];
     hoover.directionsArray = ["N"];
     hoover.drive();
@@ -31,6 +32,7 @@ describe("Hoover", function() {
   });
   it("can drive east", function() {
     hoover = new Hoover();
+    hoover.roomDimensions = [2, 2];
     hoover.hooverPosition = [1, 1];
     hoover.directionsArray = ["E"];
     hoover.drive();
@@ -38,6 +40,7 @@ describe("Hoover", function() {
   });
   it("can drive south", function() {
     hoover = new Hoover();
+    hoover.roomDimensions = [2, 2];
     hoover.hooverPosition = [1, 1];
     hoover.directionsArray = ["S"];
     hoover.drive();
@@ -45,6 +48,7 @@ describe("Hoover", function() {
   });
   it("can drive west", function() {
     hoover = new Hoover();
+    hoover.roomDimensions = [2, 2];
     hoover.hooverPosition = [1, 1];
     hoover.directionsArray = ["W"];
     hoover.drive();
@@ -60,9 +64,18 @@ describe("Hoover", function() {
   });
   it("can bounce off inner boundary walls when x=0 y=0", function() {
     hoover = new Hoover();
+    hoover.roomDimensions = [2, 2];
     hoover.hooverPosition = [0, 0];
     hoover.directionsArray = ["W", "S", "N", "E", "N", "E"];
     hoover.drive();
     expect(hoover.hooverPosition).toEqual([2, 2]);
+  });
+  it("can bounce off inner boundary walls when x=0 y=0", function() {
+    hoover = new Hoover();
+    hoover.roomDimensions = [1, 1];
+    hoover.hooverPosition = [0, 0];
+    hoover.directionsArray = ["N", "E", "N", "E", "W", "S"];
+    hoover.drive();
+    expect(hoover.hooverPosition).toEqual([0, 0]);
   });
 });

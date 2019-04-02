@@ -30,10 +30,14 @@ class Hoover {
   drive() {
     this.directionsArray.forEach(move => {
       if (move === "N") {
-        this.hooverPosition[1] += 1;
+        if (this.hooverPosition[1] < this.roomDimensions[1]) {
+          this.hooverPosition[1] += 1;
+        }
       }
       if (move === "E") {
-        this.hooverPosition[0] += 1;
+        if (this.hooverPosition[0] < this.roomDimensions[0]) {
+          this.hooverPosition[0] += 1;
+        }
       }
       if (move === "S") {
         if (this.hooverPosition[1] > 0) {
@@ -53,8 +57,6 @@ class Hoover {
           this.dirtSum += 1;
         }
       });
-      console.log(move);
-      console.log("hP>", this.hooverPosition, "<");
     });
   }
 }
