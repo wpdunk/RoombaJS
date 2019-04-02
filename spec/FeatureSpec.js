@@ -27,4 +27,10 @@ describe("Features", function() {
     hoover.run("./spec/support/testFour.txt");
     expect(console.log).toHaveBeenCalledWith("0 1\n1");
   });
+  it("given driving instructions to clean multiple patches of dirt, record correct count cleaned", function() {
+    hoover = new Hoover();
+    spyOn(console, "log");
+    hoover.run("./spec/support/testFive.txt");
+    expect(console.log).toHaveBeenCalledWith("0 3\n2");
+  });
 });
