@@ -33,4 +33,10 @@ describe("Features", function() {
     hoover.run("./spec/support/testFive.txt");
     expect(console.log).toHaveBeenCalledWith("0 3\n2");
   });
+  it("given driving instructions that force contact with walls, hoover bounces off, cleans as expected", function() {
+    hoover = new Hoover();
+    spyOn(console, "log");
+    hoover.run("./spec/support/testSix.txt");
+    expect(console.log).toHaveBeenCalledWith("3 1\n1");
+  });
 });

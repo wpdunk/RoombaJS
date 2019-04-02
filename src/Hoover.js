@@ -34,10 +34,14 @@ class Hoover {
         this.hooverPosition[0] += 1;
       }
       if (move === "S") {
-        this.hooverPosition[1] -= 1;
+        if (this.hooverPosition[1] > 0) {
+          this.hooverPosition[1] -= 1;
+        }
       }
       if (move === "W") {
-        this.hooverPosition[0] -= 1;
+        if (this.hooverPosition[0] > 0) {
+          this.hooverPosition[0] -= 1;
+        }
       }
       this.dirtArray.forEach(dirt => {
         if (
@@ -47,6 +51,8 @@ class Hoover {
           this.dirtSum += 1;
         }
       });
+      console.log(move);
+      console.log("hP>", this.hooverPosition, "<");
     });
   }
 }

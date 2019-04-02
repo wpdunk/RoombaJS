@@ -52,4 +52,11 @@ describe("Hoover", function() {
     hoover.drive();
     expect(hoover.dirtSum).toEqual(1);
   });
+  it("can bounce off inner boundary walls when x=0 y=0", function() {
+    hoover = new Hoover();
+    hoover.hooverPosition = [0, 0];
+    hoover.directionsArray = ["W", "S", "N", "E", "N", "E"];
+    hoover.drive();
+    expect(hoover.hooverPosition).toEqual([2, 2]);
+  });
 });
