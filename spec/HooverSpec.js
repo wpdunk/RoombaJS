@@ -59,15 +59,16 @@ describe("Hoover", function() {
     });
   });
 
-  it("can record count of dirt cleaned", function() {
-    hoover = new Hoover();
-    hoover.roomDimensions = [2, 2];
-    hoover.hooverPosition = [1, 1];
-    hoover.dirtArray = [[0, 1]];
-    hoover.directionsArray = ["W"];
-    hoover.drive();
-    expect(hoover.dirtSum).toEqual(1);
+  describe("clean", function() {
+    it("can record count of dirt cleaned", function() {
+      hoover = new Hoover();
+      hoover.hooverPosition = [0, 1];
+      hoover.dirtArray = [[0, 1]];
+      hoover.clean();
+      expect(hoover.dirtSum).toEqual(1);
+    });
   });
+
   it("can bounce off inner boundary walls when x=0 y=0", function() {
     hoover = new Hoover();
     hoover.roomDimensions = [2, 2];
