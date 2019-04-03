@@ -8,6 +8,7 @@ class Hoover {
     this.dirtArray = [];
     this.roomDimensions;
   }
+
   run(filePath = "./input.txt") {
     this.readInput(filePath);
     this.drive();
@@ -15,10 +16,18 @@ class Hoover {
   }
 
   readInput(filename) {
-    var inputArray = fs
-      .readFileSync(filename)
-      .toString()
-      .split("\n");
+    try {
+      var inputArray = fs
+        .readFileSync(filename)
+        .toString()
+        .split("\n");
+    } catch (error) {
+      if (error.code === "ENOENT") {
+        console.log("File not found!");
+      } else {
+        throw error;
+      }
+    }
     inputArray.pop();
     this.roomDimensions = inputArray[0].split(" ").map(Number);
     this.hooverPosition = inputArray[1].split(" ").map(Number);
