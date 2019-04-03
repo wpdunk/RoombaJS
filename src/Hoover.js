@@ -26,6 +26,7 @@ class Hoover {
         console.log("File not found!");
       } else {
         throw error;
+        console.log("File not found!");
       }
     }
     inputArray.pop();
@@ -34,6 +35,12 @@ class Hoover {
     this.directionsArray = inputArray.pop().split("");
     for (var i = 2; i < inputArray.length; i++) {
       this.dirtArray.push(inputArray[i].split(" ").map(Number));
+    }
+  }
+
+  isCardinal(input) {
+    if (/^[NESW]+$/.test(input) === false) {
+      throw new TypeError("Directions must be cardinal form!");
     }
   }
 

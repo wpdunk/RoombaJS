@@ -35,6 +35,32 @@ describe("Hoover", function() {
     });
   });
 
+  describe("isCardinal", function() {
+    it("throws error when co-ordinate input format not correct", function() {
+      badInput = function() {
+        hoover.isCardinal(111);
+      };
+      expect(badInput).toThrowError(
+        TypeError,
+        "Directions must be cardinal form!"
+      );
+      badInput2 = function() {
+        hoover.isCardinal("MmM");
+      };
+      expect(badInput2).toThrowError(
+        TypeError,
+        "Directions must be cardinal form!"
+      );
+      badInput3 = function() {
+        hoover.isCardinal("111");
+      };
+      expect(badInput3).toThrowError(
+        TypeError,
+        "Directions must be cardinal form!"
+      );
+    });
+  });
+
   describe("drive", function() {
     beforeEach(function() {
       hoover = new Hoover();
