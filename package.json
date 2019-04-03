@@ -9,11 +9,7 @@
   "author": "William Dunk",
   "license": "ISC",
   "devDependencies": {
-    "jasmine": "^3.3.1",
-    "karma": "^4.0.1",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage": "^1.1.2",
-    "karma-jasmine": "^2.0.1"
+    "jasmine": "^3.3.1"
   },
   "dependencies": {
     "fs": "0.0.1-security"
