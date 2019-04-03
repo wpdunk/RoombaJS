@@ -7,22 +7,22 @@ describe("Hoover", function() {
     });
 
     it("can record initial position from input", function() {
-      hoover.readInput("./spec/support/testOne.txt");
+      hoover.readInput("./spec/support/testInputs/testOne.txt");
       expect(hoover.hooverPosition).toEqual([0, 0]);
     });
 
     it("can record driving instructions from input", function() {
-      hoover.readInput("./spec/support/testTwo.txt");
+      hoover.readInput("./spec/support/testInputs/testTwo.txt");
       expect(hoover.directionsArray).toEqual(["N"]);
     });
 
     it("can record dirt locations from input", function() {
-      hoover.readInput("./spec/support/testFour.txt");
+      hoover.readInput("./spec/support/testInputs/testFour.txt");
       expect(hoover.dirtArray).toEqual([[0, 1]]);
     });
 
     it("can record room dimensions from input", function() {
-      hoover.readInput("./spec/support/testOne.txt");
+      hoover.readInput("./spec/support/testInputs/testOne.txt");
       expect(hoover.roomDimensions).toEqual([5, 5]);
     });
   });
