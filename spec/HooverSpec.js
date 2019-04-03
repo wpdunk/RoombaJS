@@ -25,6 +25,14 @@ describe("Hoover", function() {
       hoover.readInput("./spec/support/testInputs/testOne.txt");
       expect(hoover.roomDimensions).toEqual([5, 5]);
     });
+
+    it("throws error when input file not found", function() {
+      spyOn(console, "log");
+      badFileInput = function() {
+        hoover.readInput("nonexistentFile.txt");
+      };
+      expect(badFileInput).toThrow();
+    });
   });
 
   describe("drive", function() {
