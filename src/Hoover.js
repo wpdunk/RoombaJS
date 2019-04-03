@@ -44,6 +44,14 @@ class Hoover {
     }
   }
 
+  isCoordinates(input) {
+    if (/^[0-9]\s[0-9]+$/.test(input) === false) {
+      throw new TypeError(
+        "Coordinates must be 2 integers seperated by a space!"
+      );
+    }
+  }
+
   drive() {
     this.directionsArray.forEach(move => {
       switch (move) {

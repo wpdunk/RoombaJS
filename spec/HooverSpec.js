@@ -36,7 +36,7 @@ describe("Hoover", function() {
   });
 
   describe("isCardinal", function() {
-    it("throws error when co-ordinate input format not correct", function() {
+    it("throws error when directions input format not correct", function() {
       badInput = function() {
         hoover.isCardinal(111);
       };
@@ -57,6 +57,32 @@ describe("Hoover", function() {
       expect(badInput3).toThrowError(
         TypeError,
         "Directions must be cardinal form!"
+      );
+    });
+  });
+
+  describe("isCoordinates", function() {
+    it("throws error when co-ordinate input format not correct", function() {
+      badInput = function() {
+        hoover.isCoordinates(11);
+      };
+      expect(badInput).toThrowError(
+        TypeError,
+        "Coordinates must be 2 integers seperated by a space!"
+      );
+      badInput2 = function() {
+        hoover.isCoordinates("1,1");
+      };
+      expect(badInput2).toThrowError(
+        TypeError,
+        "Coordinates must be 2 integers seperated by a space!"
+      );
+      badInput3 = function() {
+        hoover.isCoordinates("1 Y");
+      };
+      expect(badInput3).toThrowError(
+        TypeError,
+        "Coordinates must be 2 integers seperated by a space!"
       );
     });
   });
