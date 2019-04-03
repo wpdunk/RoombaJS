@@ -4,6 +4,7 @@
   "description": "a program that navigates an imaginary robotic hoover ",
   "main": "index.js",
   "scripts": {
+    "start": "node './src/index.js'",
     "test": "jasmine"
   },
   "author": "William Dunk",
