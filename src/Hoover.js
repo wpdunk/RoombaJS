@@ -30,27 +30,31 @@ class Hoover {
 
   drive() {
     this.directionsArray.forEach(move => {
-      if (move === "N" && this.isInbounds(1, 1)) {
-        this.hooverPosition[1] += 1;
-      }
-      if (move === "E" && this.isInbounds(0, 1)) {
-        this.hooverPosition[0] += 1;
-      }
-      if (move === "S" && this.isInbounds(1, -1)) {
-        this.hooverPosition[1] -= 1;
-      }
-      if (move === "W" && this.isInbounds(0, -1)) {
-        this.hooverPosition[0] -= 1;
+      switch (move) {
+        case "N":
+          if (this.hooverPosition[1] < this.roomDimensions[1]) {
+            this.hooverPosition[1] += 1;
+          }
+          break;
+        case "E":
+          if (this.hooverPosition[0] < this.roomDimensions[0]) {
+            this.hooverPosition[0] += 1;
+          }
+          break;
+        case "S":
+          if (this.hooverPosition[1] > 0) {
+            this.hooverPosition[1] -= 1;
+          }
+          break;
+        case "W":
+          if (this.hooverPosition[0] > 0) {
+            this.hooverPosition[0] -= 1;
+          }
+          break;
+        default:
       }
       this.clean();
     });
-  }
-
-  isInbounds(xy, change) {
-    return (
-      0 <= this.hooverPosition[xy] + change &&
-      this.hooverPosition[xy] + change <= this.roomDimensions[xy]
-    );
   }
 
   clean() {
