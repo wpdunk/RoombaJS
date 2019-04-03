@@ -8,8 +8,8 @@ class Hoover {
     this.dirtArray = [];
     this.roomDimensions;
   }
-  run(filename) {
-    this.readInput(filename);
+  run(filePath = "./input.txt") {
+    this.readInput(filePath);
     this.drive();
     console.log(`${this.hooverPosition.join(" ")}\n${this.dirtSum}`);
   }
