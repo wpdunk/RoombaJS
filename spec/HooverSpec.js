@@ -69,20 +69,38 @@ describe("Hoover", function() {
     });
   });
 
-  it("can bounce off inner boundary walls when x=0 y=0", function() {
-    hoover = new Hoover();
-    hoover.roomDimensions = [2, 2];
-    hoover.hooverPosition = [0, 0];
-    hoover.directionsArray = ["W", "S", "N", "E", "N", "E"];
-    hoover.drive();
-    expect(hoover.hooverPosition).toEqual([2, 2]);
-  });
-  it("can bounce off inner boundary walls when x=0 y=0", function() {
-    hoover = new Hoover();
-    hoover.roomDimensions = [1, 1];
-    hoover.hooverPosition = [0, 0];
-    hoover.directionsArray = ["N", "E", "N", "E", "W", "S"];
-    hoover.drive();
-    expect(hoover.hooverPosition).toEqual([0, 0]);
+  describe("drive - inbounds checks", function() {
+    beforeEach(function() {
+      hoover = new Hoover();
+      hoover.roomDimensions = [2, 2];
+    });
+
+    it("can bounce off inner boundary wall when x=0", function() {
+      hoover.hooverPosition = [0, 0];
+      hoover.directionsArray = ["W"];
+      hoover.drive();
+      expect(hoover.hooverPosition).toEqual([0, 0]);
+    });
+
+    it("can bounce off inner boundary wall when x=0", function() {
+      hoover.hooverPosition = [0, 0];
+      hoover.directionsArray = ["S"];
+      hoover.drive();
+      expect(hoover.hooverPosition).toEqual([0, 0]);
+    });
+
+    it("can bounce off outer boundary wall x=roomDimensions[0] ", function() {
+      hoover.hooverPosition = hoover.roomDimensions;
+      hoover.directionsArray = ["E"];
+      hoover.drive();
+      expect(hoover.hooverPosition).toEqual(hoover.roomDimensions);
+    });
+
+    it("can bounce off outer boundary wall y=roomDimensions[1] ", function() {
+      hoover.hooverPosition = hoover.roomDimensions;
+      hoover.directionsArray = ["N"];
+      hoover.drive();
+      expect(hoover.hooverPosition).toEqual(hoover.roomDimensions);
+    });
   });
 });
