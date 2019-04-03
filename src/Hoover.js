@@ -58,12 +58,13 @@ class Hoover {
   }
 
   clean() {
-    this.dirtArray.forEach(dirt => {
+    this.dirtArray.forEach((dirt, index) => {
       if (
         this.hooverPosition[0] === dirt[0] &&
         this.hooverPosition[1] === dirt[1]
       ) {
         this.dirtSum += 1;
+        this.dirtArray.splice(index, 1);
       }
     });
   }

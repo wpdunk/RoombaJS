@@ -47,4 +47,11 @@ describe("Features", function() {
       expect(console.log).toHaveBeenCalledWith("3 1\n1");
     });
   });
+
+  describe("given instructions to pass over same dirt patch twice", function() {
+    it("should only record one successful clean", function() {
+      hoover.run("./spec/support/testInputs/testSeven.txt");
+      expect(console.log).toHaveBeenCalledWith("0 0\n1");
+    });
+  });
 });

@@ -60,10 +60,19 @@ describe("Hoover", function() {
   });
 
   describe("clean", function() {
-    it("can record count of dirt cleaned", function() {
+    beforeEach(function() {
       hoover = new Hoover();
       hoover.hooverPosition = [0, 1];
       hoover.dirtArray = [[0, 1]];
+    });
+
+    it("can record count of dirt cleaned", function() {
+      hoover.clean();
+      expect(hoover.dirtSum).toEqual(1);
+    });
+
+    it("can only clean dirt once", function() {
+      hoover.clean();
       hoover.clean();
       expect(hoover.dirtSum).toEqual(1);
     });
