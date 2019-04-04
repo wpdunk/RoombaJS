@@ -49,6 +49,38 @@ describe("Hoover", function() {
         "Directions must be cardinal form!"
       );
     });
+
+    it("throws error when input file has incorrect room dimensions", function() {
+      badFileInput = function() {
+        hoover.readInput("./spec/support/testInputs/errorCoordinatesRoom.txt");
+      };
+      expect(badFileInput).toThrowError(
+        TypeError,
+        "Coordinates must be 2 integers seperated by a space!"
+      );
+    });
+
+    it("throws error when input file has incorrect hoover position", function() {
+      badFileInput = function() {
+        hoover.readInput(
+          "./spec/support/testInputs/errorCoordinatesHoover.txt"
+        );
+      };
+      expect(badFileInput).toThrowError(
+        TypeError,
+        "Coordinates must be 2 integers seperated by a space!"
+      );
+    });
+
+    it("throws error when input file has incorrect dirt position", function() {
+      badFileInput = function() {
+        hoover.readInput("./spec/support/testInputs/errorCoordinatesDirt.txt");
+      };
+      expect(badFileInput).toThrowError(
+        TypeError,
+        "Coordinates must be 2 integers seperated by a space!"
+      );
+    });
   });
 
   describe("isCardinal", function() {
