@@ -30,24 +30,18 @@ class Hoover {
     this.directionsArray.forEach(move => {
       switch (move) {
         case "N":
-          if (this.hooverPosition[1] < this.roomDimensions[1]) {
-            this.hooverPosition[1] += 1;
-          }
+          this.hooverPosition[1] < this.roomDimensions[1] &&
+            this.hooverPosition[1]++;
           break;
         case "E":
-          if (this.hooverPosition[0] < this.roomDimensions[0]) {
-            this.hooverPosition[0] += 1;
-          }
+          this.hooverPosition[0] < this.roomDimensions[0] &&
+            this.hooverPosition[0]++;
           break;
         case "S":
-          if (this.hooverPosition[1] > 0) {
-            this.hooverPosition[1] -= 1;
-          }
+          this.hooverPosition[1] > 0 && this.hooverPosition[1]--;
           break;
         case "W":
-          if (this.hooverPosition[0] > 0) {
-            this.hooverPosition[0] -= 1;
-          }
+          this.hooverPosition[0] > 0 && this.hooverPosition[0]--;
           break;
         default:
       }
