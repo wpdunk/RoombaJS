@@ -26,7 +26,6 @@ class Hoover {
         console.log("File not found!");
       } else {
         throw error;
-        console.log("File not found!");
       }
     }
     inputArray.pop();
@@ -41,6 +40,8 @@ class Hoover {
   isCardinal(input) {
     if (/^[NESW]+$/.test(input) === false) {
       throw new TypeError("Directions must be cardinal form!");
+    } else {
+      return true;
     }
   }
 
@@ -49,6 +50,8 @@ class Hoover {
       throw new TypeError(
         "Coordinates must be 2 integers seperated by a space!"
       );
+    } else {
+      return true;
     }
   }
 
