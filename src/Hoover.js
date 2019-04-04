@@ -1,7 +1,8 @@
 const Input = require("../src/input");
 
 class Hoover {
-  constructor() {
+  constructor(input = new Input()) {
+    this.input = input;
     this.dirtSum = 0;
     this.hooverPosition;
     this.directionsArray = [];
@@ -16,7 +17,7 @@ class Hoover {
   }
 
   loadInput(filePath) {
-    var instructions = new Input();
+    var instructions = this.input;
     instructions.readInput(filePath);
     this.hooverPosition = instructions.getHooverPosition();
     this.directionsArray = instructions.getDirectionsArray();
