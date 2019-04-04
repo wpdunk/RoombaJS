@@ -1,6 +1,17 @@
 const Hoover = require("../src/hoover");
 
 describe("Hoover", function() {
+  describe("readInput", function() {
+    it("can load instructions from input file", function() {
+      hoover = new Hoover();
+      hoover.loadInput("./spec/support/testInputs/testSeven.txt");
+      expect(hoover.hooverPosition).toEqual([0, 0]);
+      expect(hoover.directionsArray).toEqual(["N", "N", "S", "S"]);
+      expect(hoover.dirtArray).toEqual([[0, 1]]);
+      expect(hoover.roomDimensions).toEqual([3, 3]);
+    });
+  });
+
   describe("drive", function() {
     beforeEach(function() {
       hoover = new Hoover();
@@ -30,25 +41,6 @@ describe("Hoover", function() {
       hoover.directionsArray = ["W"];
       hoover.drive();
       expect(hoover.hooverPosition).toEqual([0, 1]);
-    });
-  });
-
-  describe("clean", function() {
-    beforeEach(function() {
-      hoover = new Hoover();
-      hoover.hooverPosition = [0, 1];
-      hoover.dirtArray = [[0, 1]];
-    });
-
-    it("can record count of dirt cleaned", function() {
-      hoover.clean();
-      expect(hoover.dirtSum).toEqual(1);
-    });
-
-    it("can only clean dirt once", function() {
-      hoover.clean();
-      hoover.clean();
-      expect(hoover.dirtSum).toEqual(1);
     });
   });
 
@@ -84,6 +76,25 @@ describe("Hoover", function() {
       hoover.directionsArray = ["N"];
       hoover.drive();
       expect(hoover.hooverPosition).toEqual(hoover.roomDimensions);
+    });
+  });
+
+  describe("clean", function() {
+    beforeEach(function() {
+      hoover = new Hoover();
+      hoover.hooverPosition = [0, 1];
+      hoover.dirtArray = [[0, 1]];
+    });
+
+    it("can record count of dirt cleaned", function() {
+      hoover.clean();
+      expect(hoover.dirtSum).toEqual(1);
+    });
+
+    it("can only clean dirt once", function() {
+      hoover.clean();
+      hoover.clean();
+      expect(hoover.dirtSum).toEqual(1);
     });
   });
 

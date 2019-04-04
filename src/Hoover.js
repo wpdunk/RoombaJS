@@ -10,14 +10,18 @@ class Hoover {
   }
 
   run(filePath = "./input.txt") {
+    this.loadInput(filePath);
+    this.drive();
+    this.displayOutput();
+  }
+
+  loadInput(filePath) {
     var instructions = new Input();
     instructions.readInput(filePath);
     this.hooverPosition = instructions.getHooverPosition();
     this.directionsArray = instructions.getDirectionsArray();
     this.dirtArray = instructions.getDirtArray();
     this.roomDimensions = instructions.getRoomDimensions();
-    this.drive();
-    this.displayOutput();
   }
 
   drive() {
