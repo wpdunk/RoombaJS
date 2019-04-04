@@ -226,4 +226,15 @@ describe("Hoover", function() {
       expect(hoover.hooverPosition).toEqual(hoover.roomDimensions);
     });
   });
+
+  describe("displayOutput", function() {
+    it("can print hoover position and sum of dirt cleaned to terminal", function() {
+      spyOn(console, "log");
+      hoover = new Hoover();
+      hoover.hooverPosition = [0, 0];
+      hoover.dirtSum = 1;
+      hoover.displayOutput();
+      expect(console.log).toHaveBeenCalledWith("0 0\n1");
+    });
+  });
 });

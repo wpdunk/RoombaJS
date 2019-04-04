@@ -12,7 +12,7 @@ class Hoover {
   run(filePath = "./input.txt") {
     this.readInput(filePath);
     this.drive();
-    console.log(`${this.hooverPosition.join(" ")}\n${this.dirtSum}`);
+    this.displayOutput();
   }
 
   readInput(filename) {
@@ -102,6 +102,10 @@ class Hoover {
         this.dirtArray.splice(index, 1);
       }
     });
+  }
+
+  displayOutput() {
+    console.log(`${this.hooverPosition.join(" ")}\n${this.dirtSum}`);
   }
 }
 
