@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node './src/index.js'",
-    "test": "jasmine"
+    "test": "node './spec/specs.js'"
   },
   "author": "William Dunk",
   "license": "ISC",
   "devDependencies": {
-    "jasmine": "^3.3.1"
+    "jasmine": "^3.3.1",
+    "jasmine-console-reporter": "^3.1.0"
   },
   "dependencies": {
     "fs": "0.0.1-security"
