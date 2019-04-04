@@ -1,4 +1,4 @@
-var fs = require("fs");
+const Input = require("../src/input");
 
 class Hoover {
   constructor() {
@@ -10,57 +10,14 @@ class Hoover {
   }
 
   run(filePath = "./input.txt") {
-    this.readInput(filePath);
+    var instructions = new Input();
+    instructions.readInput(filePath);
+    this.hooverPosition = instructions.getHooverPosition();
+    this.directionsArray = instructions.getDirectionsArray();
+    this.dirtArray = instructions.getDirtArray();
+    this.roomDimensions = instructions.getRoomDimensions();
     this.drive();
     this.displayOutput();
-  }
-
-  readInput(filename) {
-    try {
-      var inputArray = fs
-        .readFileSync(filename)
-        .toString()
-        .split("\n");
-    } catch (error) {
-      if (error.code === "ENOENT") {
-        console.log("File not found!");
-      } else {
-        throw error;
-      }
-    }
-    inputArray.pop();
-    if (this.isCoordinates(inputArray[0])) {
-      this.roomDimensions = inputArray[0].split(" ").map(Number);
-    }
-    if (this.isCoordinates(inputArray[1])) {
-      this.hooverPosition = inputArray[1].split(" ").map(Number);
-    }
-    if (this.isCardinal(inputArray.slice(-1).pop())) {
-      this.directionsArray = inputArray.pop().split("");
-    }
-    for (var i = 2; i < inputArray.length; i++) {
-      if (this.isCoordinates(inputArray[i])) {
-        this.dirtArray.push(inputArray[i].split(" ").map(Number));
-      }
-    }
-  }
-
-  isCardinal(input) {
-    if (/^[NESW]+$/.test(input) === false) {
-      throw new TypeError("Directions must be cardinal form!");
-    } else {
-      return true;
-    }
-  }
-
-  isCoordinates(input) {
-    if (/^[0-9]\s[0-9]+$/.test(input) === false) {
-      throw new TypeError(
-        "Coordinates must be 2 integers seperated by a space!"
-      );
-    } else {
-      return true;
-    }
   }
 
   drive() {
