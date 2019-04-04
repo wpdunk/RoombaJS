@@ -3,7 +3,14 @@ const Hoover = require("../src/hoover");
 describe("Hoover", function() {
   describe("readInput", function() {
     it("can load instructions from input file", function() {
-      hoover = new Hoover("./spec/support/testInputs/testSeven.txt");
+      var mockInputObj = jasmine.createSpyObj("mockInput", {
+        readInput: true,
+        getHooverPosition: [0, 0],
+        getDirectionsArray: ["N", "N", "S", "S"],
+        getDirtArray: [[0, 1]],
+        getRoomDimensions: [3, 3]
+      });
+      hoover = new Hoover("", mockInputObj);
       hoover.loadInput();
       expect(hoover.hooverPosition).toEqual([0, 0]);
       expect(hoover.directionsArray).toEqual(["N", "N", "S", "S"]);
