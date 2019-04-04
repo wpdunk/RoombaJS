@@ -3,8 +3,8 @@ const Hoover = require("../src/hoover");
 describe("Hoover", function() {
   describe("readInput", function() {
     it("can load instructions from input file", function() {
-      hoover = new Hoover();
-      hoover.loadInput("./spec/support/testInputs/testSeven.txt");
+      hoover = new Hoover("./spec/support/testInputs/testSeven.txt");
+      hoover.loadInput();
       expect(hoover.hooverPosition).toEqual([0, 0]);
       expect(hoover.directionsArray).toEqual(["N", "N", "S", "S"]);
       expect(hoover.dirtArray).toEqual([[0, 1]]);
