@@ -6,13 +6,6 @@ describe("Features", function() {
     spyOn(console, "log");
   });
 
-  describe("given no driving instructions or dirt", function() {
-    it("should report position and zero dirt removed", function() {
-      hoover.run("./spec/support/testInputs/testOne.txt");
-      expect(console.log).toHaveBeenCalledWith("0 0\n0");
-    });
-  });
-
   describe("given single driving instruction", function() {
     it("should return updated position", function() {
       hoover.run("./spec/support/testInputs/testTwo.txt");

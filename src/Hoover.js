@@ -31,7 +31,9 @@ class Hoover {
     inputArray.pop();
     this.roomDimensions = inputArray[0].split(" ").map(Number);
     this.hooverPosition = inputArray[1].split(" ").map(Number);
-    this.directionsArray = inputArray.pop().split("");
+    if (this.isCardinal(inputArray.slice(-1).pop())) {
+      this.directionsArray = inputArray.pop().split("");
+    }
     for (var i = 2; i < inputArray.length; i++) {
       this.dirtArray.push(inputArray[i].split(" ").map(Number));
     }

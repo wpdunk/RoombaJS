@@ -25,6 +25,12 @@ describe("Hoover", function() {
       hoover.readInput("./spec/support/testInputs/testOne.txt");
       expect(hoover.roomDimensions).toEqual([5, 5]);
     });
+  });
+
+  describe("readInput - exceptions", function() {
+    beforeEach(function() {
+      hoover = new Hoover();
+    });
 
     it("throws error when input file not found", function() {
       spyOn(console, "log");
@@ -32,6 +38,16 @@ describe("Hoover", function() {
         hoover.readInput("nonexistentFile.txt");
       };
       expect(badFileInput).toThrow();
+    });
+
+    it("throws error when input file has incorrect directions", function() {
+      badFileInput = function() {
+        hoover.readInput("./spec/support/testInputs/errorCardinal.txt");
+      };
+      expect(badFileInput).toThrowError(
+        TypeError,
+        "Directions must be cardinal form!"
+      );
     });
   });
 
