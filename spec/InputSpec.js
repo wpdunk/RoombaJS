@@ -64,6 +64,11 @@ describe("Input", function() {
       expect(input.getDirectionsArray()).toEqual(["N"]);
     });
 
+    it("can retrieve directions from input (lower case format)", function() {
+      input.readInput("./spec/support/testInputs/testEight.txt");
+      expect(input.getDirectionsArray()).toEqual(["N"]);
+    });
+
     it("throws error when input file has bad directions", function() {
       input.readInput("./spec/support/testInputs/errorCardinal.txt");
       badRequest = function() {
@@ -119,7 +124,7 @@ describe("Input", function() {
       );
     });
     it("returns true when directions input format correct", function() {
-      expect(input.isCardinal("NESW")).toEqual(true);
+      expect(input.isCardinal("NeSW")).toEqual(true);
     });
   });
 

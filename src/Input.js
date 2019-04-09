@@ -38,6 +38,7 @@ class Input {
       return this.inputArray
         .slice(-1)
         .pop()
+        .toUpperCase()
         .split("");
     }
   }
@@ -53,7 +54,7 @@ class Input {
   }
 
   isCardinal(input) {
-    if (/^[NESW]+$/.test(input) === false) {
+    if (/^[neswNESW]+$/.test(input) === false) {
       throw new TypeError("Directions must be cardinal form!");
     } else {
       return true;
